@@ -1,4 +1,4 @@
-## spring boot thymeleaf MyBatisを用いて作成した個人間チャットアプリケーションです。
+## spring boot thymeleaf MyBatisを用いて作成したオリジナルの個人間チャットアプリケーションです。
 
 ### 以下の機能を実装しました。
  - ユーザー登録機能
