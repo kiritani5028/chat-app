@@ -1,0 +1,22 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/my_chat?serverTimezone=Asia/Tokyo
+    username: root
+    password: mysql
+    
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+    
+logging:
+  level:
+    org:
+      springframework: WARN
+    jp:
+      co:
+        internous:
+          practice:
+            model:
+              mapper: DEBUG

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>MyChat - 新規登録</title>
+<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="/css/common.css" />
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/register.js"></script>
+</head>
+<body>
+	<header th:replace="fragment :: fragment-header"></header>
+
+	<main class="main">
+		<h2 class="form-title">新規ユーザー作成</h2>
+		<form action="#">
+			<label class="label">ユーザー名</label>
+			<input class="input" type="text" name="userName" />
+			<label class="label">パスワード</label>
+			<input class="input" type="password" name="password" />
+			<button class="FormBtn" type="submit" id="registerBtn">作成</button>
+		</form>
+	</main>	
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>MyChat - ログイン</title>
+<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="/css/common.css" />
+
+
+</head>
+<body>
+	
+	<header th:replace="fragment :: fragment-header"></header>
+	
+	<main class="main">
+		<h2 class="form-title">ログイン</h2>
+		<form action="/chatApp/" method="post">
+			<label class="label">ユーザー名</label>
+			<input class="input" type="text" name="userName" />
+			<label class="label">パスワード</label>
+			<input class="input" type="password" name="password" />
+			<button class="FormBtn" type="submit">ログイン</button>
+		</form>
+	</main>	
+</body>
+</html>

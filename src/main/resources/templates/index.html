@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>MyChat - ホーム</title>
+<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="/css/common.css" />
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" th:src="@{/js/index.js}" th:inline="javascript"></script>
+<script th:inline="javascript">
+	$(() => {
+		$("#addFriendBtn").on('click', addFriend);
+		let json = JSON.parse(/*[[${json}]]*/);	
+		
+		if(json.length > 0){
+			showFriends(json);
+		}
+	})
+</script>
+
+</head>
+<body>
+	<header th:replace="fragment :: fragment-header"></header>
+	
+	<p th:text="${message}" />
+	
+	<main class="index-main">
+		<h2 class="index-title">HOME</h2>
+		<h3 class="friend-title">フレンド一覧</h3>
+		<table class="design10">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>名前</th>
+					<th>トークボタン</th>
+				</tr>
+			</thead>
+			<tbody id="friendList">
+			
+			</tbody>
+		</table>
+		
+		<h3 class="friend-title">フレンド追加</h3>
+		<form action="#">
+			<label class="index-label">ユーザーID</label>
+			<input class="index-input" type="number" name="userId" />
+			<label class="index-label">ユーザー名</label>
+			<input class="index-input" type="text" name="userName" />
+			<button class="index-btn" type="submit" id="addFriendBtn">フレンドを追加</button>
+		</form>
+	</main>
+
+</body>
+</html>

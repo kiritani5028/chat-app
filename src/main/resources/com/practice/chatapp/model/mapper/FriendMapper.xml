@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.practice.chatapp.model.mapper.FriendMapper">
+	
+	<select id="AddFriend">
+		INSERT INTO friend(user_a, user_b) VALUES (#{userA}, #{userB})
+	</select>
+	
+	<select id="findByUserId" resultType="com.practice.chatapp.model.domain.Friend">
+		SELECT * FROM friend WHERE user_a = #{userId} OR user_b = #{userId}
+	</select>
+	
+	<select id="findByUserAAndUserB" resultType="com.practice.chatapp.model.domain.Friend">
+		SELECT * FROM friend WHERE user_a = #{userA} AND user_b = #{userB}
+	</select>
+
+</mapper>

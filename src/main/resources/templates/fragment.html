@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>MyChat - フラグメント</title>
+</head>
+<body>
+	
+	<header class="header" th:fragment="fragment-header">
+		<div class="header-wrapper">
+			<h1 class="header__title"><a class="header__a" href="/chatApp/">MyChat</a></h1>
+			<div th:if="${loginSession.userName == null}">
+				<a class="header__btn" href="/chatApp/login">ログイン</a>
+				<a class="header__btn" href="/chatApp/register">新規登録</a>
+			</div>
+			
+			<div class="login-wrapper" th:if="${loginSession.userName != null}">
+				<p class="header__welcome">[ ユーザーID : <span th:text="${loginSession.id}"></span> ]　こんにちは！
+				<span class="header__welcome" th:text="${loginSession.userName}"></span>さん！
+				 
+				</p>
+				<a class="header__btn" href="/chatApp/logout">ログアウト</a>
+			</div>
+		</div>
+	</header>
+	
+</body>
+</html>

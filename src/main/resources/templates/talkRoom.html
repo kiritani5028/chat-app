@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>MyChat - トークルーム</title>
+<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="/css/common.css" />
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" th:src="@{/js/talkRoom.js}" th:inline="javascript"></script>
+<script th:inline="javascript">
+	$(() => {
+		$("#messageBtn").on('click', send);
+		
+		let json = JSON.parse(/*[[${json}]]*/);
+		
+		if(json.length > 0){
+			showMessages(json);
+		}
+	})
+</script>
+</head>
+<body>
+	<header th:replace="fragment :: fragment-header"></header>
+	
+	<main class="index-main">
+		<h2 class="index-title"><span class="index-title" th:text="${friendName}"></span>さんとのトークルームです</h2>
+		<input type="hidden" th:value="${loginSession.id}" id="userId"/>
+		<input type="hidden" th:value="${friendId}" id="friendId"/>
+		
+		<form class="message-form" action="#">
+			<label class="index-label">メッセージを入力</label>
+			<textarea class="textarea" cols="50" rows="1" placeholder="メッセージを入力してください" name="message"></textarea>
+			<button class="index-btn" type="submit" id="messageBtn">送信</button>
+		</form>
+		
+		<table class="design10">
+			<thead>
+				<tr>
+					<th>送信者</th>
+					<th>メッセージ</th>
+				</tr>
+			</thead>
+			<tbody id="messageList">
+			
+			</tbody>
+		</table>
+	</main>
+</body>
+</html>
+
+
+
+
+
+
+

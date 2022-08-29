@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.practice.chatapp.model.mapper.ChatMapper">
+	
+	<select id="InsertChat">
+		INSERT INTO chat(say_user, listen_user, message, created_at) VALUES (#{sayUser}, #{listenUser}, #{message}, now())
+	</select>
+	
+	<select id="findBySayUserAndListenUser" resultType="com.practice.chatapp.model.domain.Chat">
+		SELECT * FROM chat WHERE ( say_User = #{loginUser} OR say_user = #{friendUser} ) AND ( listen_user = #{loginUser} OR listen_user = #{friendUser} )
+	</select>
+
+</mapper>
